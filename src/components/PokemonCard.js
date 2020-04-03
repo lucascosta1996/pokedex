@@ -4,7 +4,7 @@ import pokeballOpen from '../assets/pokeball-open.png'
 import pokeballClosed from '../assets/pokeball.png'
 import usePokemon from '../utils/hooks/usePokemon'
 
-const PokemonCardWrapper = styled.div`
+const PokemonCardWrapper = styled.section`
   align-items: center;
   background-color: #fff;
   border-radius: 3px;
@@ -81,7 +81,7 @@ export default function PokemonCard( { pokemon } ) {
       <header>
         {
           ( illustration && pokemonData !== undefined ) ? (
-            <img src={ pokemonData.sprites.front_default } />
+            <img className="pokemonIllustration" src={ pokemonData.sprites.front_default } />
           ) : (
             <h2 className="pokemonName">{pokemon.name}</h2>
           )

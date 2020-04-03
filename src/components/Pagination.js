@@ -27,8 +27,8 @@ export default function Pagination() {
         }
         return (
           <PaginationWrapper>
-            <PaginationButton item="&#8592;" value={ previous } isActive={ false } update={ () => updatePagination( previous ) } />
-            <PaginationButton item="&#8594;" value={ next } isActive={ false } update={ () => updatePagination( next ) } max={ pagesCount } />
+            <PaginationButton item="&#8592;" id="previous" value={ previous } isActive={ false } update={ () => updatePagination( previous ) } />
+            <PaginationButton item="&#8594;" id="next" value={ next } isActive={ false } update={ () => updatePagination( next ) } max={ pagesCount } />
           </PaginationWrapper>
         )
     }}

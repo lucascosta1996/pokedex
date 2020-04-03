@@ -78,13 +78,17 @@ function Pokemons( { page } ) {
               <h1>Pokemons</h1>
             </div>
             <section className="list">
-              { pokemons && pokemons.results.map( pokemon => (
-                <Link to={ {
-                  pathname: `/pokedex/${pokemon.name}`,
-                  state: {
-                    pokemon
-                  }
-                } } key={pokemon.name}>
+              { pokemons && pokemons.results.map( ( pokemon, index ) => (
+                <Link
+                  to={ {
+                    pathname: `/pokedex/${pokemon.name}`,
+                    state: {
+                      pokemon
+                    }
+                  } }
+                  key={ pokemon.name }
+                  id={ index }
+                >
                   <PokemonCard pokemon={ pokemon } />
                 </Link> 
               ) ) }

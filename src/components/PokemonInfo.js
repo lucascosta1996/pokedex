@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import usePokemon from '../utils/hooks/usePokemon'
 import Loading from '../layout/Loading'
 
-const PokemonInfoWrapper = styled.div`
+const PokemonInfoWrapper = styled.section`
   margin: auto;
   position: relative;
   width: 960px;
@@ -79,9 +79,9 @@ export default function PokemonInfo( { location } ) {
 
   return(
     <PokemonInfoWrapper>
-      <Link className="back" to="/pokedex"> &#8592; Back</Link>
+      <Link className="back" to="/pokedex" id="back"> &#8592; Back</Link>
       <header className="pokemon_header">
-        <h2 className="title_pokemon">
+        <h2 id="pokemon-page-title" className="title_pokemon">
           { pokemon.name }
         </h2>
         <img src={ pokemonData.sprites.front_default } className="pokemon_illustration" />

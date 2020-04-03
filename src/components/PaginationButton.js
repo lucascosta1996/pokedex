@@ -27,13 +27,13 @@ const PaginationButtonWrapper = styled.div`
   }
 `
 
-export default function PaginationButton( { isActive, item, update, value } ) {
+export default function PaginationButton( { isActive, id, item, update, value } ) {
   if ( value === null || value === "" ) return null
-
   return (
     <PaginationButtonWrapper>
       <button
         className={ isActive ? 'active' : '' }
+        id={ id }
         onClick={ update }
       >
         { item }
