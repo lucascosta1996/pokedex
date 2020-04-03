@@ -1,24 +1,28 @@
 var path = require('path')
 var HtmlWebpackPlugin =  require('html-webpack-plugin')
+var webpack = require('webpack')
 
 module.exports = {
+    devServer: {
+        port: 3001,
+        historyApiFallback: true,
+        openPage: 'pokedex'
+    },
     entry : ['babel-polyfill', './src/index.js'],
     output : {
         path : path.resolve(__dirname , 'dist'),
-        filename: 'index_bundle.js'
+        filename: 'index_bundle.js',
+        publicPath: '/pokedex'
     },
     module : {
         rules : [
             {test : /\.(js)$/, use:'babel-loader'},
             {test : /\.css$/, use:['style-loader', 'css-loader']},
-            {test: /\.svg$/, use: [ {
-                    loader: 'svg-url-loader',
-                    options: {
-                      limit: 10000,
-                    },
-                  },
-                ],
-              },
+            {test: /\.(png|svg|jpe?g|gif)$/i, use: [
+                {
+                    loader: 'file-loader'
+                }
+            ]}
         ]
     },
     mode:'development',
