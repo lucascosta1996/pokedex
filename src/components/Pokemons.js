@@ -2,17 +2,17 @@ import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { PokemonsContext } from '../context/PokemonsContext'
-// import CharacterCard from '../components/CharacterCard'
-//import lightsaber from '../assets/lightsaber.svg'
+import PokemonCard from './PokemonCard'
+import pokeball from '../assets/pokeball.svg'
 
 const PokemonsWrapper = styled.div`
   position: relative;
-
   .list {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     margin: 0 auto;
+    position: relative;
     width: 960px;
 
     @media ( max-width: 520px ) {
@@ -25,7 +25,6 @@ const PokemonsWrapper = styled.div`
   .loading {
     animation: rotation 2s infinite linear;
     bottom: 0;
-    filter: drop-shadow(0px 0px 15px rgba(255, 136, 136, 0.8));
     left: 0;
     margin: 0 auto;
     position: absolute;
@@ -74,10 +73,10 @@ function Pokemons( { page } ) {
   }, [ page ] )
 
   if ( context.loading.get ) return (
-    <PokemonsWrapper>
-      {/* <img src={ lightsaber } className="loading" /> */}
-    </PokemonsWrapper>
-  )
+      <PokemonsWrapper>
+        <img src={ pokeball } className="loading" />
+      </PokemonsWrapper>
+    )
 
   return (
     <PokemonsContext.Consumer>
@@ -90,15 +89,14 @@ function Pokemons( { page } ) {
               <h1>Pokemons</h1>
             </div>
             <section className="list">
-              { pokemons && pokemons.results.map( character => (
+              { pokemons && pokemons.results.map( pokemon => (
                 <Link to={ {
-                  pathname: `/info/${character.name}`,
+                  pathname: `/pokedex/${pokemon.name}`,
                   state: {
-                    character
+                    pokemon
                   }
-                } } key={character.name}>
-                  <span> {character.name} </span>
-                  {/* <CharacterCard character={ character } /> */}
+                } } key={pokemon.name}>
+                  <PokemonCard pokemon={ pokemon } />
                 </Link> 
               ) ) }
             </section>
