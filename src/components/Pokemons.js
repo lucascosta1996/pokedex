@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { PokemonsContext } from '../context/PokemonsContext'
 import PokemonCard from './PokemonCard'
-import pokeball from '../assets/pokeball.svg'
+import Loading from '../layout/Loading'
 
 const PokemonsWrapper = styled.div`
   position: relative;
@@ -15,22 +15,11 @@ const PokemonsWrapper = styled.div`
     position: relative;
     width: 960px;
 
-    @media ( max-width: 520px ) {
+    @media ( max-width: 1024px ) {
       align-items: center;
       flex-direction: column;
       width: 90%;
     }
-  }
-
-  .loading {
-    animation: rotation 2s infinite linear;
-    bottom: 0;
-    left: 0;
-    margin: 0 auto;
-    position: absolute;
-    right: 0;
-    top: 0;
-    max-width: 90px;
   }
 
   @keyframes rotation {
@@ -73,10 +62,10 @@ function Pokemons( { page } ) {
   }, [ page ] )
 
   if ( context.loading.get ) return (
-      <PokemonsWrapper>
-        <img src={ pokeball } className="loading" />
-      </PokemonsWrapper>
-    )
+    <PokemonsWrapper>
+      <Loading />
+    </PokemonsWrapper>
+  )
 
   return (
     <PokemonsContext.Consumer>
