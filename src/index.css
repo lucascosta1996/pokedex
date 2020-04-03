@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Dokdo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+html, body {
+  background: linear-gradient(90deg, #11998e 21px, transparent 1%) center, linear-gradient(#11998e 21px, transparent 1%) center, #ffffff;
+  background-size: 22px 22px;
+  padding: 40px 0;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+figure {
+  margin: 0;
+}
