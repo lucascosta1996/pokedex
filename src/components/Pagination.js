@@ -16,7 +16,6 @@ export default function Pagination() {
   const pages = Array.from({ length: pagesCount }, (v, k) => k + 1 )
   const previous = context.previous.get
   const next = context.next.get
-  debugger
 
   if ( context.loading.get ) return null
 
