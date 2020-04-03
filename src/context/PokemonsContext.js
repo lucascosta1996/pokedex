@@ -19,10 +19,11 @@ function PokemonsContextProvider( { children } ) {
       .then(res => res.json())
       .catch(err => {
         setError(err)
-      })
-    
+      } )
+
     setPokemons( data )
     setPrevious( getQuery( data.previous, 'offset' ) )
+    setCurrent( page )
     setNext( getQuery( data.next, 'offset' ) )
     setCount( data.count )
     setLoading( false )
@@ -34,7 +35,7 @@ function PokemonsContextProvider( { children } ) {
       get: previous
     },
     current: {
-      get: current, set: setCurrent
+      get: current
     },
     next: {
       get: next
